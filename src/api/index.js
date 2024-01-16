@@ -105,7 +105,7 @@ export const getCastDetail = async (castId) => {
 
 //get movies staring cast
 export const getMoviesStaringCast = async (castId) => {
-  const res = await api.get('https://api.themoviedb.org/3/discover/movie/', {
+  const res = await api.get('https://api.themoviedb.org/3/discover/movie', {
     params : {
       api_key: api_key,
       with_people: castId
