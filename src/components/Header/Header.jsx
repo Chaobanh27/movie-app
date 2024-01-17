@@ -50,6 +50,8 @@ const Header = () => {
     }
     if (flag) {
       let results = await getMovieSearchingResults(searchValue)
+      let resultsJson = JSON.stringify(results)
+      localStorage.setItem('SEARCH_VALUE', resultsJson)
       dispatch({ type: 'SET_DATA', payload: results })
       navigate('/search-results')
     }
