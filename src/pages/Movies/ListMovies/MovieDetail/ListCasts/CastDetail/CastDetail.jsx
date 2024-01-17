@@ -86,9 +86,7 @@ const CastDetail = () => {
         {
           loading ? <Loader/> : <>
             {renderData()}
-            <Container>
-              <MovieSlider getData={ movies } />
-            </Container>
+            <MovieSlider getData={ movies } />
           </>
         }
       </section>

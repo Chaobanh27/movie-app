@@ -24,7 +24,10 @@ body::-webkit-scrollbar-thumb {
   background: black;
   width: 100%;
 }
-
+.navbar .nav-link {
+  color: white !important;
+  font-weight: bold;
+}
 .loader-conttainer {
   min-height: 100vh;
   display: grid;
@@ -45,9 +48,20 @@ body::-webkit-scrollbar-thumb {
   text-overflow: ellipsis;
   color: white;
 }
-
-.popular-movie, .top-rated-movie, .upcoming-movie h3{
+.title {
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.title h3 {
+  color: white
+}
+.title a {
   color: white;
+  text-decoration: none;
+}
+.explore-more {
+  font-size: 25px;
 }
 .swiper-scrollbar-drag {
   background: #0D6EFD !important;
@@ -72,17 +86,17 @@ body::-webkit-scrollbar-thumb {
   background-repeat: no-repeat !important;
   background-size: 100% !important;
 }
-.swider-movie-banner .title {
+.swider-movie-banner .movie-banner-title {
   font-size: 50px;
   font-weight: bold;
   margin-top: 56px;
 }
 
-.swider-movie-banner .subtitle {
+.swider-movie-banner .movie-banner-subtitle {
   font-size: 21px;
 }
 
-.swider-movie-banner .text {
+.swider-movie-banner .movie-banner-text {
   font-size: 20px;
   max-width: 400px;
   line-height: 1.3;
@@ -96,7 +110,7 @@ body::-webkit-scrollbar-thumb {
   .movie-banner-section {
     height: 60vh;
   }
-  .swider-movie-banner .text{
+  .swider-movie-banner .movie-banner-text{
     display: none;
   }
 }
@@ -105,10 +119,10 @@ body::-webkit-scrollbar-thumb {
   .movie-banner-section {
     height: 40vh;
   }
-  .swider-movie-banner .text{
+  .swider-movie-banner .movie-banner-text{
     display: none;
   }
-  .swider-movie-banner .title {
+  .swider-movie-banner .movie-banner-title {
     font-size: 25px;
   }
 }
@@ -117,18 +131,18 @@ body::-webkit-scrollbar-thumb {
   .movie-banner-section {
     height: 30vh;
   }
-  .swider-movie-banner .title {
+  .swider-movie-banner .movie-banner-title {
     font-size: 15px;
   }
-  .swider-movie-banner .subtitle {
+  .swider-movie-banner .movie-banner-subtitle {
     font-size: 15px;
   }
 }
 @media only screen and (max-width: 400px) {
-  .swider-movie-banner .title {
+  .swider-movie-banner .movie-banner-title {
     font-size: 10px;
   }
-  .swider-movie-banner .subtitle {
+  .swider-movie-banner .movie-banner-subtitle {
     display: none;
   }
   .swider-movie-banner .button Button {
@@ -181,11 +195,11 @@ background-color: rgba(255, 255, 255, 0);
 .search-results .container {
   margin-top: 56px;
 }
-.search-results .icon-404 svg{
+.icon-404 svg{
   font-size: 350px;
   color: white;
 }
-.search-results .not-found {
+.not-found {
   display: grid;
   place-items: center;
   min-height: 50vh;

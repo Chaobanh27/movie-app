@@ -19,13 +19,13 @@ const MovieBannerSlider = ({ getData }) => {
       return (
         <>
           <SwiperSlide>
-            <div className="title" data-swiper-parallax="-300">
+            <div className="movie-banner-title" data-swiper-parallax="-300">
               {data[randomMovie].title}
             </div>
-            <div className="subtitle" data-swiper-parallax="-200">
+            <div className="movie-banner-subtitle" data-swiper-parallax="-200">
               {data[randomMovie].release_date}
             </div>
-            <div className="text" data-swiper-parallax="-100">
+            <div className="movie-banner-text" data-swiper-parallax="-100">
               <p>
                 {data[randomMovie].overview}
               </p>

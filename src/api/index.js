@@ -49,26 +49,42 @@ api.interceptors.response.use(
 )
 
 //get popular movies
-export const getPopularMovies = async () => {
-  const res = await api.get(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`)
+export const getPopularMovies = async (page) => {
+  const res = await api.get(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`, {
+    params : {
+      page: page
+    }
+  })
   return res.data.results
 }
 
 //get top rated movies
-export const getTopRatedMovies = async () => {
-  const res = await api.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}`)
+export const getTopRatedMovies = async (page) => {
+  const res = await api.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}`, {
+    params : {
+      page: page
+    }
+  })
   return res.data.results
 }
 
 //get upcoming movies
-export const getUpcomingMovies = async () => {
-  const res = await api.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}`)
+export const getUpcomingMovies = async (page) => {
+  const res = await api.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}`, {
+    params : {
+      page: page
+    }
+  })
   return res.data.results
 }
 
 //get now playing movies
-export const getNowPlayingMovies = async () => {
-  const res = await api.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}`)
+export const getNowPlayingMovies = async (page) => {
+  const res = await api.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}`, {
+    params : {
+      page: page
+    }
+  })
   return res.data.results
 }
 
@@ -136,11 +152,12 @@ export const getListGenre = async () => {
 }
 
 //get movies by genre
-export const getMovieByGenre = async (genreId) => {
+export const getMovieByGenre = async (genreId, page) => {
   const res = await api.get('https://api.themoviedb.org/3/discover/movie', {
     params : {
       api_key : api_key,
-      with_genres: genreId
+      with_genres: genreId,
+      page: page
     }
   })
   return res.data.results
@@ -157,11 +174,23 @@ export const getListCountry = async () => {
 }
 
 //get movies by Country
-export const getMovieByCountry = async (countryId) => {
+export const getMovieByCountry = async (countryId, page) => {
   const res = await api.get('https://api.themoviedb.org/3/discover/movie', {
     params : {
       api_key : api_key,
-      with_original_language: countryId
+      with_original_language: countryId,
+      page: page
+    }
+  })
+  return res.data.results
+}
+
+//get list of cast
+export const getListCast = async (page) => {
+  const res = await api.get('https://api.themoviedb.org/3/person/popular', {
+    params : {
+      api_key : api_key,
+      page: page
     }
   })
   return res.data.results

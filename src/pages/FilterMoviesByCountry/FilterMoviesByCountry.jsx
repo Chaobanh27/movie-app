@@ -2,43 +2,35 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import ReactPaginate from 'react-paginate'
 import { getMovieByCountry } from '../../api'
 import { Container, Row } from 'react-bootstrap'
 import Loader from '../../components/Loader/Loader'
+import Pagination from '../../components/Pagination/Pagination'
 
-const FilterMoviesByCountry = (props) => {
+const FilterMoviesByCountry = () => {
   const [data, setData] = useState([])
-  const [itemOffset, setItemOffset] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(false)
-  let itemsPerPage = props.itemsPerPage
   const { countryId } = useParams()
 
   useEffect(() => {
     setLoading(true)
     const fetchData = async () => {
-      const results = await getMovieByCountry(countryId)
-      console.log(results)
+      const results = await getMovieByCountry(countryId, currentPage)
       setData(results)
       setLoading(false)
     }
     fetchData()
-  }, [countryId])
-
-  const endOffset = itemOffset + itemsPerPage
-  const currentItems = data.slice(itemOffset, endOffset)
-  const pageCount = Math.ceil(data.length / itemsPerPage)
+  }, [countryId, currentPage])
 
   const handlePageClick = (e) => {
-    const newOffset = (e.selected * itemsPerPage) % data.length
-    //console.log(newOffset)
-    //console.log(`User requested page number ${e.selected}, which is offset ${newOffset}`)
-    setItemOffset(newOffset)
+    const nextPage = e.selected + 1
+    setCurrentPage(nextPage)
   }
 
   const renderData = () => {
-    if (currentItems.length > 0) {
-      return currentItems.map((value) => {
+    if (data.length > 0) {
+      return data.map((value) => {
         //console.log(value)
         if (value.poster_path !== null) {
           return (
@@ -68,26 +60,7 @@ const FilterMoviesByCountry = (props) => {
         {
           loading ? <Loader/> : <Container>
             <Row>{renderData()}</Row>
-            <ReactPaginate
-              nextLabel='next >'
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={3}
-              marginPagesDisplayed={2}
-              pageCount={pageCount}
-              previousLabel='< previous'
-              pageClassName='page-item'
-              pageLinkClassName='page-link'
-              previousClassName='page-item'
-              previousLinkClassName='page-link'
-              nextClassName='page-item'
-              nextLinkClassName='page-link'
-              breakLabel='...'
-              breakClassName='page-item'
-              breakLinkClassName='page-link'
-              containerClassName='pagination'
-              activeClassName='active'
-              renderOnZeroPageCount={null}
-            />
+            <Pagination handlePageClick={ handlePageClick } forcePage={ currentPage - 1 } />
           </Container>
         }
 

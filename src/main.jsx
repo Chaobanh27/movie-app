@@ -13,6 +13,8 @@ import store from './redux/store.js'
 import MovieSearchingResults from './pages/MovieSearchingResults/MovieSearchingResults.jsx'
 import FilterMoviesByCountry from './pages/FilterMoviesByCountry/FilterMoviesByCountry.jsx'
 import FilterMoviesByGenre from './pages/FilterMoviesByGenre/FilterMoviesByGenre.jsx'
+import ListMovies from './pages/Movies/ListMovies/ListMovies.jsx'
+import ListCasts from './pages/Movies/ListMovies/MovieDetail/ListCasts/ListCasts.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -22,6 +24,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Routes>
             <Route index path='/' element={<HomeIndex/>} />
             <Route index path='/search-results' element = {<MovieSearchingResults/>} />
+            <Route index path='/movie/list-movie/popular' element = {<ListMovies />} />
+            <Route index path='/movie/list-movie/top-rated' element = {<ListMovies/>} />
+            <Route index path='/movie/list-movie/upcoming' element = {<ListMovies/>} />
+            <Route index path='/movie/list-cast' element = {<ListCasts/>} />
             <Route index path='/movie/detail/:id' element = {<MovieDetail/>} />
             <Route index path='/cast/detail/:id' element = {<CastDetail/>} />
             <Route index path='/movie/filter/Genre/:genreId' element = {< FilterMoviesByGenre itemsPerPage={8} />} />

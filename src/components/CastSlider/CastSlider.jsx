@@ -35,7 +35,7 @@ const CastSlider = ({ getData }) => {
 
   return (
     <>
-      <Container className='mt-3'>
+      <Container fluid className='mt-3'>
         <Row>
           <Col>
             <Swiper
