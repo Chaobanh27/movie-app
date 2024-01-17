@@ -127,7 +127,6 @@ const MovieDetail = () => {
           loading ? <Loader/> : <>
             {renderData()}
             <CastSlider getData = { cast } />
-            <h3>Similar movies</h3>
             <MovieSlider getData = { similar } />
 
           </>

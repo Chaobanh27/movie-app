@@ -82,12 +82,37 @@ const ListMovies = () => {
     setCurrentPage(nextPage)
   }
 
+  const renderTitle = () => {
+    if (params['pathname'].includes('popular')) {
+      return (
+        <h3>All Popular Movies</h3>
+      )
+    }
+    else if (params['pathname'].includes('top-rated')) {
+      return (
+        <h3>All Top-Rated Movies</h3>
+      )
+    }
+    else if (params['pathname'].includes('upcoming')) {
+      return (
+        <h3>All Upcoming Movies</h3>
+      )
+    }
+  }
+
   return (
     <>
       <section className='search-results'>
         {
           loading ? <Loader/> : <Container>
-            <Row>{renderData()}</Row>
+            <Row>
+              <div style={{ textAlign:'center', color:'white' }}>
+                {
+                  renderTitle()
+                }
+              </div>
+              {renderData()}
+            </Row>
             <Pagination handlePageClick={handlePageClick} forcePage = {currentPage - 1} />
           </Container>
         }

@@ -38,10 +38,9 @@ body::-webkit-scrollbar-thumb {
   min-height: 100vh;
   border: 1px solid;
 }
-.swiper{
+.swiper-wrapper{
   padding: 10px 0px !important;
 }
-
 .movie-title,.cast-name {
   white-space:pre;
   overflow:hidden;

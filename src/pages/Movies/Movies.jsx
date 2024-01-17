@@ -80,7 +80,7 @@ const Movies = () => {
               <Container className = 'title' fluid>
                 <h3>Popular Movies</h3>
                 <div className='explore-more'>
-                  <Link to={'/movie/list-movie/top-rated'}>
+                  <Link to={'/movie/list-movie/popular'}>
                     <FaArrowAltCircleRight />
                   </Link>
                 </div>
