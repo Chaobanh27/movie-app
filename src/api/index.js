@@ -3,7 +3,7 @@ import axios from 'axios'
 import store from '../redux/store'
 import { fetchDataFailure, fetchDataRequest, fetchDataSuccess } from '../redux/Action/ActionCreator'
 
-const api_key = '474226313b15cb8eb2da7d23a4b6d38d'
+const api_key = ''
 
 // Tạo một instance Axios
 const api = axios.create()
